@@ -1,0 +1,146 @@
+import 'package:flutter/material.dart';
+import 'package:sycamore_project/core/helper_methods.dart';
+import 'package:sycamore_project/screens/copd_questions_screen.dart';
+import 'package:sycamore_project/screens/interstitialLung_disease_questions_screen.dart';
+import 'package:sycamore_project/screens/pneumonia_questions_screen.dart';
+import 'package:sycamore_project/screens/pulmonary_embolism_questions_screen.dart';
+import 'package:sycamore_project/screens/pulmonary_fibrosis_questions_sceen.dart';
+import '../components/item_radio_button_register_screen.dart';
+
+class ThirdRegisterScreen extends StatefulWidget {
+  const ThirdRegisterScreen({super.key});
+
+  @override
+  State<ThirdRegisterScreen> createState() => _ThirdRegisterScreenState();
+}
+
+class _ThirdRegisterScreenState extends State<ThirdRegisterScreen> {
+  String? selectedDisease;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+        leading: IconButton(
+          icon: const Icon(
+            Icons.arrow_back_ios,
+            color: Colors.black,
+          ),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          const Center(
+            child: Text(
+              textAlign: TextAlign.center,
+              'To complete your register\nplease answer this\nquestions',
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+            ),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Container(
+            height: 400,
+            width: 280,
+            decoration: BoxDecoration(
+              gradient: const LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+                  Color(0xffB7D4C5),
+                  Color(0xff1D938F),
+                ],
+              ),
+              borderRadius: BorderRadius.circular(34),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(
+                  height: 30,
+                ),
+                Center(
+                  child: Text(
+                    textAlign: TextAlign.center,
+                    'which of them you are suffer\nfrom ?',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black.withOpacity(0.7),
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                ItemRadioButtonRegisterScreen(
+                  text: 'COPD',
+                  groupValue: selectedDisease ?? '',
+                  onChanged: (String? value) {
+                    onDiseaseSelected(value, context);
+                    navigateTo(
+                        page: const CopdQuestionsScreen(), withHistory: true);
+                  },
+                ),
+                ItemRadioButtonRegisterScreen(
+                  text: 'Pulmonary fibrosis',
+                  groupValue: selectedDisease ?? '',
+                  onChanged: (String? value) {
+                    onDiseaseSelected(value, context);
+                    navigateTo(page: const PulmonaryFibrosisQuestionsScreen());
+                  },
+                ),
+                ItemRadioButtonRegisterScreen(
+                  text: 'Pulmonary embolism',
+                  groupValue: selectedDisease ?? '',
+                  onChanged: (String? value) {
+                    onDiseaseSelected(value, context);
+                    navigateTo(
+                        page: const PulmonaryEmbolismQuestionsScreen(),
+                        withHistory: true);
+                  },
+                ),
+                ItemRadioButtonRegisterScreen(
+                  text: 'Pneumonia',
+                  groupValue: selectedDisease ?? '',
+                  onChanged: (String? value) {
+                    onDiseaseSelected(value, context);
+                    navigateTo(
+                        page: const PneumoniaQuestionsScreen(),
+                        withHistory: true);
+                  },
+                ),
+                ItemRadioButtonRegisterScreen(
+                  text: 'Interstitial lung disease',
+                  groupValue: selectedDisease ?? '',
+                  onChanged: (String? value) {
+                    onDiseaseSelected(value, context);
+                    navigateTo(
+                        page: const InterstitialLungDiseaseQuestionsScreen());
+                  },
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+        ],
+      ),
+    );
+  }
+
+  void onDiseaseSelected(String? value, BuildContext context) {
+    setState(() {
+      selectedDisease = value;
+    });
+  }
+}
