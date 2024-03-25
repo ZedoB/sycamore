@@ -11,14 +11,29 @@ class WelcomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const CustomAppBar(),
+          const SizedBox(height: 100,),
+          const Text('sycamore', style: TextStyle(
+                shadows: [
+                  Shadow(
+                      blurRadius: 2,
+                      offset: Offset(0, 4),
+                      color: Color(0xffC9DED3)
+                  )
+                ],
+                fontFamily: 'Inknut Antiqua',
+                fontWeight: FontWeight.w400,
+                fontSize: 55,
+                color: Color(0xffA8D4D3)
+            ),textAlign: TextAlign.center,),
           const Spacer(
-            flex: 3,
+            flex: 2,
           ),
           const Text(
             'Let’s get started!',
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
+            style: TextStyle(fontWeight: FontWeight.w700, fontSize: 22,
+            fontFamily: 'Inter'),
           ),
           const SizedBox(
             height: 5,
@@ -28,24 +43,32 @@ class WelcomeScreen extends StatelessWidget {
               textAlign: TextAlign.center,
               'Login to enjoy the features we’ve\n provided, and stay healthy!',
               style: TextStyle(
-                  fontSize: 15,
+                shadows: [
+                  Shadow(
+                    blurRadius: 10,
+                    offset: Offset(4, 4),
+                    color: Color(0xffBFDCCD)
+                  )
+                ],
+                  fontSize: 16,
                   color: Colors.grey,
-                  fontWeight: FontWeight.bold),
+                  fontWeight: FontWeight.w400,
+              fontFamily: 'Inter'),
             ),
           ),
           const Spacer(
-            flex: 2,
+            flex: 1,
           ),
           GestureDetector(
             onTap: () {
               showLoginDialog(context);
             },
             child: Container(
-              width: 250,
+              width: 263,
               height: 60,
               decoration: BoxDecoration(
-                color: const Color(0xff199A8E),
-                borderRadius: BorderRadius.circular(25),
+                color: const Color(0xff199A8E).withOpacity(.8),
+                borderRadius: BorderRadius.circular(35),
               ),
               child: const Center(
                 child: Text(
@@ -63,17 +86,18 @@ class WelcomeScreen extends StatelessWidget {
               showSignUpDialog(context);
             },
             child: Container(
-              width: 250,
+              width: 263,
               height: 60,
               decoration: BoxDecoration(
                 color: Colors.white,
                 border: Border.all(color: kPrimaryColor),
-                borderRadius: BorderRadius.circular(25),
+                borderRadius: BorderRadius.circular(35),
               ),
-              child: const Center(
+              child: Center(
                 child: Text(
                   'Sign Up',
-                  style: TextStyle(color: kPrimaryColor, fontSize: 20),
+                  style: TextStyle(color: const Color(0xff199A8E).withOpacity(.9)
+                      , fontSize: 20),
                 ),
               ),
             ),

@@ -18,23 +18,35 @@ class _ItemCheckBoxRegisterScreenState
     extends State<ItemCheckBoxRegisterScreen> {
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Checkbox(
-          fillColor: MaterialStateProperty.all(
-              widget.isChecked! ? kPrimaryColor : Colors.white),
-          value: widget.isChecked,
-          onChanged: (bool? value) {
-            setState(() {
-              widget.isChecked = value!;
-            });
-          },
-        ),
-        Text(
-          widget.text,
-          style: const TextStyle(color: Colors.white, fontSize: 15),
-        ),
-      ],
+    return Container(
+      decoration: BoxDecoration(
+          color: widget.isChecked! ? const Color(0xffD3E9E9) : Colors.white,
+          borderRadius: BorderRadius.circular(14),
+          border: Border.all(color: widget.isChecked! ?
+          Colors.black.withOpacity(.3) : Colors.black.withOpacity(0))
+      ),
+      width: 375.74, height: 50,
+      child: Row(
+        children: [
+          Checkbox(
+            fillColor: MaterialStateProperty.all(Colors.white),
+            checkColor: const Color(0xffD3E9E9),
+            value: widget.isChecked,
+            onChanged: (bool? value) {
+              setState(() {
+                widget.isChecked = value!;
+              });
+            },
+          ),
+          Text(
+            widget.text,
+            style: TextStyle(color: Colors.black.withOpacity(.8),
+                fontSize: 24,
+            fontFamily: 'Poppins',
+            fontWeight: FontWeight.w200),
+          ),
+        ],
+      ),
     );
   }
 }

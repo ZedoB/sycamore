@@ -62,7 +62,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                       shadows: [
                         Shadow(
                             blurRadius: 4,
-                          color: Color(0xffBFDCCD),
+                          color: Color(0xff8ec1a6),
                           offset: Offset(2, 4),
                         ),
                       ],
@@ -81,16 +81,16 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                     style: TextStyle(
                       fontFamily: "Poppins",
                       fontSize: 14,
-                      fontWeight: FontWeight.w500,
+                      fontWeight: FontWeight.w400,
                       color: const Color(0xff030303).withOpacity(0.58),
                     ),
                   ),
                   controller.models[controller.currentPage].subtitle == null
                       ? const SizedBox(
-                          height: 80,
+                          height: 180,
                         )
                       : const SizedBox(
-                          height: 20,
+                          height: 145,
                         ),
                   Row(
                     mainAxisSize: MainAxisSize.min,

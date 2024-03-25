@@ -41,40 +41,30 @@ class _ThirdRegisterScreenState extends State<ThirdRegisterScreen> {
             child: Text(
               textAlign: TextAlign.center,
               'To complete your register\nplease answer this\nquestions',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+              style: TextStyle(fontWeight: FontWeight.w500, fontSize: 24,
+              fontFamily: 'Inter'),
             ),
           ),
           const SizedBox(
             height: 20,
           ),
-          Container(
+          SizedBox(
             height: 400,
-            width: 280,
-            decoration: BoxDecoration(
-              gradient: const LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [
-                  Color(0xffB7D4C5),
-                  Color(0xff1D938F),
-                ],
-              ),
-              borderRadius: BorderRadius.circular(34),
-            ),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const SizedBox(
                   height: 30,
                 ),
-                Center(
+                const Center(
                   child: Text(
                     textAlign: TextAlign.center,
-                    'which of them you are suffer\nfrom ?',
+                    'which of them you are suffer from ?',
                     style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black.withOpacity(0.7),
+                      fontSize: 24,
+                      fontWeight: FontWeight.w500,
+                      fontFamily: 'Inter',
+                      color: Color(0xff1D938F),
                     ),
                   ),
                 ),

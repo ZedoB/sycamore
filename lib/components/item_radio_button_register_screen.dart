@@ -22,20 +22,32 @@ class _ItemRadioButtonRegisterScreenState
     extends State<ItemRadioButtonRegisterScreen> {
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Radio<String?>(
-          fillColor: MaterialStateProperty.all(
-              widget.groupValue == widget.text ? kPrimaryColor : Colors.white),
-          value: widget.text,
-          groupValue: widget.groupValue,
-          onChanged: widget.onChanged,
-        ),
-        Text(
-          widget.text,
-          style: const TextStyle(color: Colors.white, fontSize: 15),
-        ),
-      ],
+    return Container(
+      decoration: BoxDecoration(
+          color: widget.groupValue == widget.text ? const Color(0xffD3E9E9)
+              : Colors.white,
+          borderRadius: BorderRadius.circular(14),
+          border: Border.all(color: widget.groupValue == widget.text ?
+          Colors.black.withOpacity(.3) : Colors.black.withOpacity(0))
+      ),
+      width: 375.74, height: 50,
+      child: Row(
+        children: [
+          Radio<String?>(
+            fillColor: MaterialStateProperty.all(
+                widget.groupValue == widget.text ? Colors.blue : Colors.white),
+            overlayColor: MaterialStateProperty.all(Colors.blue),
+            value: widget.text,
+            groupValue: widget.groupValue,
+            onChanged: widget.onChanged,
+          ),
+          Text(
+            widget.text,
+            style: TextStyle(color: Colors.black.withOpacity(.8),
+                fontSize: 24, fontFamily: 'Poppins', fontWeight: FontWeight.w200),
+          ),
+        ],
+      ),
     );
   }
 }

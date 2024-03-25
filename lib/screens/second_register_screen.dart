@@ -10,6 +10,7 @@ class SecondRegisterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
@@ -27,11 +28,13 @@ class SecondRegisterScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          const SizedBox(height: 5,),
           const Center(
             child: Text(
               textAlign: TextAlign.center,
               'To complete your register\nplease answer this\nquestions',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+              style: TextStyle(fontWeight: FontWeight.w500, fontSize: 24,
+              fontFamily: 'Inter'),
             ),
           ),
           const SizedBox(
@@ -40,31 +43,21 @@ class SecondRegisterScreen extends StatelessWidget {
           Container(
             height: 400,
             width: 280,
-            decoration: BoxDecoration(
-              gradient: const LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [
-                  Color(0xffB7D4C5),
-                  Color(0xff1D938F),
-                ],
-              ),
-              borderRadius: BorderRadius.circular(34),
-            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(
                   height: 30,
                 ),
-                Center(
+                const Center(
                   child: Text(
                     textAlign: TextAlign.center,
                     'Do you have any of the\n following chronic diseases?',
                     style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black.withOpacity(0.7),
+                      fontSize: 24,
+                      fontFamily: 'Inter',
+                      fontWeight: FontWeight.w500,
+                      color: Color(0xff1D938F),
                     ),
                   ),
                 ),
@@ -72,9 +65,13 @@ class SecondRegisterScreen extends StatelessWidget {
                   height: 20,
                 ),
                 ItemCheckBoxRegisterScreen(text: 'Heart disease'),
+                const SizedBox(height: 2,),
                 ItemCheckBoxRegisterScreen(text: 'Diabetes'),
+                const SizedBox(height: 2,),
                 ItemCheckBoxRegisterScreen(text: 'Hypertension'),
+                const SizedBox(height: 2,),
                 ItemCheckBoxRegisterScreen(text: 'Hepatitis c '),
+                const SizedBox(height: 2,),
                 ItemCheckBoxRegisterScreen(text: 'Hepatitis B'),
               ],
             ),
