@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:sycamore_project/screens/splash_screen.dart';
+import 'package:sycamore_project/try/try.dart';
 
 import 'core/helper_methods.dart';
 
 void main() {
-  runApp(const SycamoreApp());
+  runApp(const OnBoardingScreen());
 }
 
 class SycamoreApp extends StatelessWidget {
