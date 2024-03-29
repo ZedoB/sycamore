@@ -5,7 +5,7 @@ import 'package:sycamore_project/try/try.dart';
 import 'core/helper_methods.dart';
 
 void main() {
-  runApp(const OnBoardingScreen());
+  runApp(const SycamoreApp());
 }
 
 class SycamoreApp extends StatelessWidget {
@@ -18,7 +18,7 @@ class SycamoreApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: false,
       ),
-      home: const SplashScreen(),
+      home: const Try(),
       debugShowCheckedModeBanner: false,
     );
   }

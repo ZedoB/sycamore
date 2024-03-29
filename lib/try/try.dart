@@ -1,73 +1,68 @@
 import 'package:flutter/material.dart';
 import 'package:sycamore_project/constants.dart';
+import 'package:sycamore_project/controllers/questions_controller.dart';
 import 'package:sycamore_project/core/helper_methods.dart';
 import 'package:sycamore_project/custom_widgets/custom_text_button.dart';
 import 'package:sycamore_project/screens/welcome_screen.dart';
+import 'package:sycamore_project/try/try_controller.dart';
 import '../controllers/on_boarding_controller.dart';
 
-class OnBoardingScreen extends StatefulWidget {
-  const OnBoardingScreen({Key? key}) : super(key: key);
+class Try extends StatefulWidget {
+  const Try({Key? key}) : super(key: key);
 
   @override
-  State<OnBoardingScreen> createState() => _OnBoardingScreenState();
+  State<Try> createState() => _TryState();
 }
 
-class _OnBoardingScreenState extends State<OnBoardingScreen> {
-  final controller = OnBoardingController();
+class _TryState extends State<Try> {
+  final controller = QuestionsController();
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView(
         onPageChanged: (value) {
-          controller.currentPage = value; // value رقم الصفحه الى انت روحتلها
+          controller.currentPage = value;
           setState(() {});
         },
         children: List.generate(
-          controller.models.length,
+          controller.copdQuestions.length,
               (index) => SingleChildScrollView(
             child: SizedBox(
               width: double.infinity,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Align(
-                    alignment: AlignmentDirectional.topEnd,
-                    child: CustomTextButton(
-                      onPressed: () {
-                        navigateTo(
-                            page: const WelcomeScreen(), withHistory: true);
-                      },
-                      text: "skip",
-                      color: const Color(0xff323232).withOpacity(.59),
+                  Text('answer questions'),
+                  const SizedBox(height: 5,),
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: List.generate(
+                      controller.copdQuestions.length,
+                          (index) => Padding(
+                        padding: const EdgeInsetsDirectional.only(end: 5),
+                        child: Container(
+                          width: 10, height: 5,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(16),
+                            color: index == controller.currentPage
+                                ? const Color(0xff359E98)
+                                : const Color(0xffD9D9D9),
+                          ),
+                        ),
+                      ),
                     ),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Image.asset(
-                    controller.models[controller.currentPage].image!,
-                    fit: BoxFit.fill,
                   ),
                   const SizedBox(
                     height: 30,
                   ),
                   Text(
-                    controller.models[controller.currentPage].title!,
+                    controller.copdQuestions[controller.currentPage].question,
                     textAlign: TextAlign.center,
                     style: const TextStyle(
-                      shadows: [
-                        Shadow(
-                          blurRadius: 4,
-                          color: Color(0xff8ec1a6),
-                          offset: Offset(2, 4),
-                        ),
-                      ],
                       fontFamily: "Alice",
-                      fontSize: 48,
+                      fontSize: 28,
                       fontWeight: FontWeight.w400,
                       color: Color(0xff777777),
                     ),
@@ -75,38 +70,33 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   const SizedBox(
                     height: 33,
                   ),
-                  Text(
-                    textAlign: TextAlign.center,
-                    controller.models[controller.currentPage].subtitle ?? "",
-                    style: TextStyle(
-                      fontFamily: "Poppins",
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400,
-                      color: const Color(0xff030303).withOpacity(0.58),
-                    ),
-                  ),
-                  controller.models[controller.currentPage].subtitle == null
-                      ? const SizedBox(
-                    height: 180,
-                  )
-                      : const SizedBox(
-                    height: 145,
-                  ),
                   Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: List.generate(
-                      controller.models.length,
-                          (index) => Padding(
-                        padding: const EdgeInsetsDirectional.only(end: 5),
-                        child: CircleAvatar(
-                          radius: 6,
-                          backgroundColor: index == controller.currentPage
-                              ? const Color(0xff359E98)
-                              : const Color(0xffD9D9D9),
-                        ),
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        width: 50,height: 50,
+                        child: TextButton(onPressed: (){
+                          setState(() {
+                            kCOPdAnswers[controller.copdQuestions[
+                              controller.currentPage].question] = 'yes';
+                          });
+                        }, child: Text('yes'),),
                       ),
-                    ),
+                      Container(
+                        width: 50,height: 50,
+                        child: TextButton(onPressed: (){
+                          setState(() {
+                            kCOPdAnswers[controller.copdQuestions[
+                            controller.currentPage].question] = 'no';
+                          });
+                        }, child: Text('no'),),
+                      )
+                    ],
                   ),
+                  kCOPdAnswers[controller.copdQuestions[
+                  controller.currentPage].question] == 'yes' ?
+                  Text(controller.copdQuestions[
+                  controller.currentPage].question) : Text('')
                 ],
               ),
             ),
@@ -115,4 +105,5 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
       ),
     );
   }
+
 }
