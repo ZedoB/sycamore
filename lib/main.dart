@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:sycamore_project/screens/splash_screen.dart';
-import 'package:sycamore_project/try/try.dart';
-
 import 'core/helper_methods.dart';
 
 void main() {
@@ -18,7 +16,7 @@ class SycamoreApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: false,
       ),
-      home: const Try(),
+      home: const SplashScreen(),
       debugShowCheckedModeBanner: false,
     );
   }

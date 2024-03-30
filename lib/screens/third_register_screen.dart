@@ -2,10 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:sycamore_project/core/helper_methods.dart';
 import 'package:sycamore_project/screens/copd_questions_screen.dart';
 import 'package:sycamore_project/screens/interstitialLung_disease_questions_screen.dart';
+import 'package:sycamore_project/screens/pneumonia_questions.dart';
 import 'package:sycamore_project/screens/pneumonia_questions_screen.dart';
+import 'package:sycamore_project/screens/pulmonary_embolism_questions.dart';
 import 'package:sycamore_project/screens/pulmonary_embolism_questions_screen.dart';
+import 'package:sycamore_project/screens/pulmonary_fibrosis_questions.dart';
 import 'package:sycamore_project/screens/pulmonary_fibrosis_questions_sceen.dart';
 import '../components/item_radio_button_register_screen.dart';
+import 'copd_questions.dart';
+import 'interstitial_lung_questions.dart';
 
 class ThirdRegisterScreen extends StatefulWidget {
   const ThirdRegisterScreen({super.key});
@@ -77,7 +82,7 @@ class _ThirdRegisterScreenState extends State<ThirdRegisterScreen> {
                   onChanged: (String? value) {
                     onDiseaseSelected(value, context);
                     navigateTo(
-                        page: const CopdQuestionsScreen(), withHistory: true);
+                        page: const COPDQuestions(), withHistory: true);
                   },
                 ),
                 ItemRadioButtonRegisterScreen(
@@ -85,7 +90,7 @@ class _ThirdRegisterScreenState extends State<ThirdRegisterScreen> {
                   groupValue: selectedDisease ?? '',
                   onChanged: (String? value) {
                     onDiseaseSelected(value, context);
-                    navigateTo(page: const PulmonaryFibrosisQuestionsScreen());
+                    navigateTo(page: const PulmonaryFibrosisQuestions());
                   },
                 ),
                 ItemRadioButtonRegisterScreen(
@@ -94,7 +99,7 @@ class _ThirdRegisterScreenState extends State<ThirdRegisterScreen> {
                   onChanged: (String? value) {
                     onDiseaseSelected(value, context);
                     navigateTo(
-                        page: const PulmonaryEmbolismQuestionsScreen(),
+                        page: const PulmonaryEmbolismQuestions(),
                         withHistory: true);
                   },
                 ),
@@ -104,7 +109,7 @@ class _ThirdRegisterScreenState extends State<ThirdRegisterScreen> {
                   onChanged: (String? value) {
                     onDiseaseSelected(value, context);
                     navigateTo(
-                        page: const PneumoniaQuestionsScreen(),
+                        page: const PneumoniaQuestions(),
                         withHistory: true);
                   },
                 ),
@@ -114,7 +119,7 @@ class _ThirdRegisterScreenState extends State<ThirdRegisterScreen> {
                   onChanged: (String? value) {
                     onDiseaseSelected(value, context);
                     navigateTo(
-                        page: const InterstitialLungDiseaseQuestionsScreen());
+                        page: const InterstitialLungQuestions());
                   },
                 ),
               ],

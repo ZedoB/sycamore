@@ -1,26 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:sycamore_project/constants.dart';
 import 'package:sycamore_project/controllers/questions_controller.dart';
-import 'package:sycamore_project/core/helper_methods.dart';
-import 'package:sycamore_project/custom_widgets/custom_text_button.dart';
-import 'package:sycamore_project/screens/welcome_screen.dart';
-import 'package:sycamore_project/try/try_controller.dart';
-import '../controllers/on_boarding_controller.dart';
 
-class Try extends StatefulWidget {
-  const Try({Key? key}) : super(key: key);
+class COPDQuestions extends StatefulWidget {
+  const COPDQuestions({Key? key}) : super(key: key);
 
   @override
-  State<Try> createState() => _TryState();
+  State<COPDQuestions> createState() => _COPDQuestionsState();
 }
 
-class _TryState extends State<Try> {
+class _COPDQuestionsState extends State<COPDQuestions> {
   final controller = QuestionsController();
 
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.white,
+        leading: IconButton(icon: const Icon(Icons.arrow_back_ios,
+        color: Colors.black,),
+        onPressed: (){
+          Navigator.of(context).pop();
+        },),
+      ),
       body: PageView(
         onPageChanged: (value) {
           controller.currentPage = value;
@@ -34,8 +39,13 @@ class _TryState extends State<Try> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text('answer questions'),
                   const SizedBox(height: 5,),
+                  const Text(
+                      'To complete your register\n please answer these\n questions',
+                  style: TextStyle(fontWeight: FontWeight.bold,
+                  fontSize: 24),
+                  textAlign: TextAlign.center,),
+                  const SizedBox(height: 45,),
                   Row(
                     mainAxisSize: MainAxisSize.min,
                     children: List.generate(
@@ -43,7 +53,7 @@ class _TryState extends State<Try> {
                           (index) => Padding(
                         padding: const EdgeInsetsDirectional.only(end: 5),
                         child: Container(
-                          width: 10, height: 5,
+                          width: 15, height: 4,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(16),
                             color: index == controller.currentPage
@@ -55,7 +65,7 @@ class _TryState extends State<Try> {
                     ),
                   ),
                   const SizedBox(
-                    height: 30,
+                    height: 50,
                   ),
                   Text(
                     controller.copdQuestions[controller.currentPage].question,
@@ -68,35 +78,19 @@ class _TryState extends State<Try> {
                     ),
                   ),
                   const SizedBox(
-                    height: 33,
+                    height: 60,
                   ),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Container(
-                        width: 50,height: 50,
-                        child: TextButton(onPressed: (){
-                          setState(() {
-                            kCOPdAnswers[controller.copdQuestions[
-                              controller.currentPage].question] = 'yes';
-                          });
-                        }, child: Text('yes'),),
-                      ),
-                      Container(
-                        width: 50,height: 50,
-                        child: TextButton(onPressed: (){
-                          setState(() {
-                            kCOPdAnswers[controller.copdQuestions[
-                            controller.currentPage].question] = 'no';
-                          });
-                        }, child: Text('no'),),
-                      )
+                      yesNoButton('Yes'),
+                      yesNoButton('No')
                     ],
                   ),
                   kCOPdAnswers[controller.copdQuestions[
-                  controller.currentPage].question] == 'yes' ?
+                  controller.currentPage].question] == 'Yes' ?
                   Text(controller.copdQuestions[
-                  controller.currentPage].question) : Text('')
+                  controller.currentPage].question) : const Text('')
                 ],
               ),
             ),
@@ -106,4 +100,26 @@ class _TryState extends State<Try> {
     );
   }
 
+  Container yesNoButton(String answer) {
+    return Container(
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          border: Border.all(
+            color: const Color(0xff777777),
+          )),
+      width: 100,
+      height: 55,
+      child: TextButton(
+        onPressed: () {
+          setState(() {
+            kCOPdAnswers[controller
+                .copdQuestions[controller.currentPage].question] = answer;
+          });
+        },
+        child: Text(answer, style: const TextStyle(
+          color: Color(0xff777777), fontSize: 20
+        ),),
+      ),
+    );
+  }
 }
