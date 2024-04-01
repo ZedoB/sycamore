@@ -34,7 +34,7 @@ class SuccessRegisterScreen extends StatelessWidget {
               ],
               fontFamily: "Alice",
               fontWeight: FontWeight.w400,
-              fontSize: 48,
+              fontSize: 35,
               color: const Color(0xff030303).withOpacity(.58),
             ),
           ),

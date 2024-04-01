@@ -44,7 +44,7 @@ class CheckYourInboxScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              height: 370,
+              height: 310,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
@@ -95,7 +95,7 @@ class CheckYourInboxScreen extends StatelessWidget {
                   GestureDetector(
                     onTap: () {},
                     child: Container(
-                      width: 230,
+                      width: 200,
                       height: 60,
                       decoration: BoxDecoration(
                         color: const Color(0xffFFFFFF).withOpacity(0.75),

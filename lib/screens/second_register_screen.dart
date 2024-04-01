@@ -54,7 +54,7 @@ class SecondRegisterScreen extends StatelessWidget {
                     textAlign: TextAlign.center,
                     'Do you have any of the\n following chronic diseases?',
                     style: TextStyle(
-                      fontSize: 24,
+                      fontSize: 20,
                       fontFamily: 'Inter',
                       fontWeight: FontWeight.w500,
                       color: Color(0xff1D938F),

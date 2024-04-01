@@ -29,12 +29,12 @@ class _ItemRadioButtonRegisterScreenState
           border: Border.all(color: widget.groupValue == widget.text ?
           Colors.black.withOpacity(.3) : Colors.black.withOpacity(0))
       ),
-      width: 375.74, height: 50,
+      width: 350, height: 40,
       child: Row(
         children: [
           Radio<String?>(
             fillColor: MaterialStateProperty.all(
-                widget.groupValue == widget.text ? Colors.blue : Colors.white),
+                widget.groupValue == widget.text ? Colors.blue : Colors.grey),
             overlayColor: MaterialStateProperty.all(Colors.blue),
             value: widget.text,
             groupValue: widget.groupValue,
@@ -43,7 +43,7 @@ class _ItemRadioButtonRegisterScreenState
           Text(
             widget.text,
             style: TextStyle(color: Colors.black.withOpacity(.8),
-                fontSize: 24, fontFamily: 'Poppins', fontWeight: FontWeight.w200),
+                fontSize: 18, fontFamily: 'Poppins', fontWeight: FontWeight.w200),
           ),
         ],
       ),

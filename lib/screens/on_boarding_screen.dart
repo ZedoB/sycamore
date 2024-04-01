@@ -66,7 +66,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                         ),
                       ],
                       fontFamily: "Alice",
-                      fontSize: 48,
+                      fontSize: 30,
                       fontWeight: FontWeight.w400,
                       color: Color(0xff777777),
                     ),
@@ -86,10 +86,10 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   ),
                   controller.models[controller.currentPage].subtitle == null
                       ? const SizedBox(
-                          height: 180,
+                          height: 80,
                         )
                       : const SizedBox(
-                          height: 145,
+                          height: 25,
                         ),
                   Row(
                     mainAxisSize: MainAxisSize.min,

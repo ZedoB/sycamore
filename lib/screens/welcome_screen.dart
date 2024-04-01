@@ -12,7 +12,7 @@ class WelcomeScreen extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const SizedBox(height: 100,),
+          const SizedBox(height: 80,),
           const Text('sycamore', style: TextStyle(
                 shadows: [
                   Shadow(
@@ -23,11 +23,11 @@ class WelcomeScreen extends StatelessWidget {
                 ],
                 fontFamily: 'Inknut Antiqua',
                 fontWeight: FontWeight.w400,
-                fontSize: 55,
+                fontSize: 32,
                 color: Color(0xffA8D4D3)
             ),textAlign: TextAlign.center,),
           const Spacer(
-            flex: 2,
+            flex: 3,
           ),
           const Text(
             'Let’s get started!',
@@ -35,7 +35,7 @@ class WelcomeScreen extends StatelessWidget {
             fontFamily: 'Inter'),
           ),
           const SizedBox(
-            height: 8,
+            height: 5,
           ),
           const Center(
             child: Text(
@@ -49,21 +49,21 @@ class WelcomeScreen extends StatelessWidget {
                     color: Color(0xffBFDCCD)
                   )
                 ],
-                  fontSize: 16,
+                  fontSize: 15,
                   color: Colors.grey,
                   fontWeight: FontWeight.w400,
               fontFamily: 'Inter'),
             ),
           ),
           const Spacer(
-            flex: 1,
+            flex: 2,
           ),
           GestureDetector(
             onTap: () {
               showLoginDialog(context);
             },
             child: Container(
-              width: 263,
+              width: 250,
               height: 60,
               decoration: BoxDecoration(
                 color: const Color(0xff199A8E).withOpacity(.8),
@@ -85,7 +85,7 @@ class WelcomeScreen extends StatelessWidget {
               showSignUpDialog(context);
             },
             child: Container(
-              width: 263,
+              width: 250,
               height: 60,
               decoration: BoxDecoration(
                 color: Colors.white,

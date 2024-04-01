@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sycamore_project/constants.dart';
 import 'package:sycamore_project/core/helper_methods.dart';
 import 'package:sycamore_project/screens/pneumonia_questions.dart';
 import 'package:sycamore_project/screens/pulmonary_embolism_questions.dart';
@@ -20,6 +21,7 @@ class _ThirdRegisterScreenState extends State<ThirdRegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
@@ -75,6 +77,7 @@ class _ThirdRegisterScreenState extends State<ThirdRegisterScreen> {
                   text: 'COPD',
                   groupValue: selectedDisease ?? '',
                   onChanged: (String? value) {
+                    myChoise = 'copd';
                     onDiseaseSelected(value, context);
                     navigateTo(
                         page: const COPDQuestions(), withHistory: true);
@@ -84,6 +87,7 @@ class _ThirdRegisterScreenState extends State<ThirdRegisterScreen> {
                   text: 'Pulmonary fibrosis',
                   groupValue: selectedDisease ?? '',
                   onChanged: (String? value) {
+                    myChoise = 'fibrosis';
                     onDiseaseSelected(value, context);
                     navigateTo(page: const PulmonaryFibrosisQuestions());
                   },
@@ -92,6 +96,7 @@ class _ThirdRegisterScreenState extends State<ThirdRegisterScreen> {
                   text: 'Pulmonary embolism',
                   groupValue: selectedDisease ?? '',
                   onChanged: (String? value) {
+                    myChoise = 'embolism';
                     onDiseaseSelected(value, context);
                     navigateTo(
                         page: const PulmonaryEmbolismQuestions(),
@@ -102,6 +107,7 @@ class _ThirdRegisterScreenState extends State<ThirdRegisterScreen> {
                   text: 'Pneumonia',
                   groupValue: selectedDisease ?? '',
                   onChanged: (String? value) {
+                    myChoise = 'pneumonia';
                     onDiseaseSelected(value, context);
                     navigateTo(
                         page: const PneumoniaQuestions(),
@@ -112,6 +118,7 @@ class _ThirdRegisterScreenState extends State<ThirdRegisterScreen> {
                   text: 'Interstitial lung disease',
                   groupValue: selectedDisease ?? '',
                   onChanged: (String? value) {
+                    myChoise = 'interstitial';
                     onDiseaseSelected(value, context);
                     navigateTo(
                         page: const InterstitialLungQuestions());

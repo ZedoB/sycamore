@@ -6,7 +6,7 @@ class CustomButton extends StatelessWidget {
       required this.text,
       this.onTap,
       this.borderRadius = 25,
-      this.width = 260,
+      this.width = 200,
       this.textFontSize = 20});
 
   final String text;

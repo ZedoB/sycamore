@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:sycamore_project/constants.dart';
 import 'package:sycamore_project/controllers/questions_controller.dart';
 
+import '../core/helper_methods.dart';
+
 class InterstitialLungQuestions extends StatefulWidget {
   const InterstitialLungQuestions({Key? key}) : super(key: key);
 
@@ -11,6 +13,7 @@ class InterstitialLungQuestions extends StatefulWidget {
 
 class _InterstitialLungQuestionsState extends State<InterstitialLungQuestions> {
   final controller = QuestionsController();
+  PageController pageController = PageController(initialPage: 0);
 
 
   @override
@@ -27,6 +30,7 @@ class _InterstitialLungQuestionsState extends State<InterstitialLungQuestions> {
           },),
       ),
       body: PageView(
+        controller: pageController,
         onPageChanged: (value) {
           controller.currentPage = value;
           setState(() {});
@@ -45,7 +49,7 @@ class _InterstitialLungQuestionsState extends State<InterstitialLungQuestions> {
                     style: TextStyle(fontWeight: FontWeight.bold,
                         fontSize: 24),
                     textAlign: TextAlign.center,),
-                  const SizedBox(height: 45,),
+                  const SizedBox(height: 30,),
                   Row(
                     mainAxisSize: MainAxisSize.min,
                     children: List.generate(
@@ -79,7 +83,7 @@ class _InterstitialLungQuestionsState extends State<InterstitialLungQuestions> {
                     ),
                   ),
                   const SizedBox(
-                    height: 60,
+                    height: 40,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -88,10 +92,10 @@ class _InterstitialLungQuestionsState extends State<InterstitialLungQuestions> {
                       yesNoButton('No')
                     ],
                   ),
-                  kInterstitialLungAnswers[controller.interstitialLungDiseaseQuestions[
-                  controller.currentPage].question] == 'Yes' ?
-                  Text(controller.interstitialLungDiseaseQuestions[
-                  controller.currentPage].question) : const Text('')
+                //   kInterstitialLungAnswers[controller.interstitialLungDiseaseQuestions[
+                //   controller.currentPage].question] == 'Yes' ?
+                //   Text(controller.interstitialLungDiseaseQuestions[
+                //   controller.currentPage].question) : const Text('')
                 ],
               ),
             ),
@@ -108,8 +112,8 @@ class _InterstitialLungQuestionsState extends State<InterstitialLungQuestions> {
           border: Border.all(
             color: const Color(0xff777777),
           )),
-      width: 100,
-      height: 55,
+      width: 90,
+      height: 50,
       child: TextButton(
         onPressed: () {
           setState(() {
@@ -121,6 +125,14 @@ class _InterstitialLungQuestionsState extends State<InterstitialLungQuestions> {
               kInterstitialLungYesAnswers.add(
                   controller.interstitialLungDiseaseQuestions[
               controller.currentPage].question);}
+
+            pageController.nextPage(duration: const Duration(milliseconds: 500),
+                curve: Curves.easeIn);
+
+            if(controller.currentPage == controller.interstitialLungDiseaseQuestions
+                .length-1){
+              navigateToHomePage('patient');
+            }
           });
         },
         child: Text(answer, style: const TextStyle(

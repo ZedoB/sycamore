@@ -11,3 +11,5 @@ List<String> kPulmonaryEmbolismYesAnswers = [];
 List<String> kPulmonaryFibrosisYesAnswers = [];
 List<String> kPneumoniaYesAnswers = [];
 List<String> kInterstitialLungYesAnswers = [];
+
+String myChoise = '';

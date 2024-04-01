@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:sycamore_project/constants.dart';
 import 'package:sycamore_project/controllers/questions_controller.dart';
 
+import '../core/helper_methods.dart';
+
 class COPDQuestions extends StatefulWidget {
   const COPDQuestions({Key? key}) : super(key: key);
 
@@ -11,6 +13,7 @@ class COPDQuestions extends StatefulWidget {
 
 class _COPDQuestionsState extends State<COPDQuestions> {
   final controller = QuestionsController();
+  PageController pageController = PageController(initialPage: 0);
 
 
   @override
@@ -27,6 +30,7 @@ class _COPDQuestionsState extends State<COPDQuestions> {
         },),
       ),
       body: PageView(
+        controller: pageController,
         onPageChanged: (value) {
           controller.currentPage = value;
           setState(() {});
@@ -45,7 +49,7 @@ class _COPDQuestionsState extends State<COPDQuestions> {
                   style: TextStyle(fontWeight: FontWeight.bold,
                   fontSize: 24),
                   textAlign: TextAlign.center,),
-                  const SizedBox(height: 45,),
+                  const SizedBox(height: 30,),
                   Row(
                     mainAxisSize: MainAxisSize.min,
                     children: List.generate(
@@ -78,7 +82,7 @@ class _COPDQuestionsState extends State<COPDQuestions> {
                     ),
                   ),
                   const SizedBox(
-                    height: 60,
+                    height: 40,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -108,8 +112,8 @@ class _COPDQuestionsState extends State<COPDQuestions> {
           border: Border.all(
             color: const Color(0xff777777),
           )),
-      width: 100,
-      height: 55,
+      width: 90,
+      height: 50,
       child: TextButton(
         onPressed: () {
           setState(() {
@@ -120,6 +124,13 @@ class _COPDQuestionsState extends State<COPDQuestions> {
             controller.currentPage].question] == 'Yes'){
               kCOPDYesAnswers.add(controller.copdQuestions[
               controller.currentPage].question);}
+
+            pageController.nextPage(duration: const Duration(milliseconds: 500),
+                curve: Curves.easeIn);
+
+            if(controller.currentPage == controller.copdQuestions.length-1){
+              navigateToHomePage('patient');
+            }
           });
         },
         child: Text(answer, style: const TextStyle(

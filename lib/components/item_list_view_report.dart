@@ -22,9 +22,10 @@ class CustomListItem extends StatelessWidget {
             children: [
               Text(
                 title,
-                style: TextStyle(
-                  color: kPrimaryColor.withOpacity(0.8),
-                  fontWeight: FontWeight.bold,
+                style: const TextStyle(
+                  fontFamily: 'Alice',
+                  color: Color(0xff76BCBA),
+                  fontWeight: FontWeight.w400,
                   fontSize: 18,
                 ),
               ),
@@ -32,9 +33,10 @@ class CustomListItem extends StatelessWidget {
               Text(
                 value,
                 style: const TextStyle(
-                  color: Colors.grey,
-                  fontWeight: FontWeight.bold,
+                  color: Color(0xff8E8E93),
+                  fontWeight: FontWeight.w500,
                   fontSize: 17,
+                  fontFamily: 'Poppins'
                 ),
               ),
             ],

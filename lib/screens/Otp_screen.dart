@@ -37,7 +37,7 @@ class OtpScreen extends StatelessWidget {
                   'check your inbox',
                   style: TextStyle(
                     fontWeight: FontWeight.w500,
-                      fontSize: 36,
+                      fontSize: 25,
                       color: const Color(0xff030303).withOpacity(0.58),
                       fontFamily: 'Poppins'),
                 ),
@@ -50,7 +50,7 @@ class OtpScreen extends StatelessWidget {
                   'A 6_digit confirmation code has \n\t\t\t\t\t\t\t\t\t\t\t\t been sent to your email',
                   style: TextStyle(
                       color: const Color(0xff030303).withOpacity(0.65),
-                      fontSize: 20.0,
+                      fontSize: 15.0,
                       fontFamily: 'Poppins'),
                 ),
               ),

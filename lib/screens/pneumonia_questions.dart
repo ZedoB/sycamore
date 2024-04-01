@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:sycamore_project/constants.dart';
 import 'package:sycamore_project/controllers/questions_controller.dart';
 
+import '../core/helper_methods.dart';
+
 class PneumoniaQuestions extends StatefulWidget {
   const PneumoniaQuestions({Key? key}) : super(key: key);
 
@@ -11,6 +13,7 @@ class PneumoniaQuestions extends StatefulWidget {
 
 class _PneumoniaQuestionsState extends State<PneumoniaQuestions> {
   final controller = QuestionsController();
+  PageController pageController = PageController(initialPage: 0);
 
 
   @override
@@ -27,6 +30,7 @@ class _PneumoniaQuestionsState extends State<PneumoniaQuestions> {
           },),
       ),
       body: PageView(
+        controller: pageController,
         onPageChanged: (value) {
           controller.currentPage = value;
           setState(() {});
@@ -45,7 +49,7 @@ class _PneumoniaQuestionsState extends State<PneumoniaQuestions> {
                     style: TextStyle(fontWeight: FontWeight.bold,
                         fontSize: 24),
                     textAlign: TextAlign.center,),
-                  const SizedBox(height: 45,),
+                  const SizedBox(height: 30,),
                   Row(
                     mainAxisSize: MainAxisSize.min,
                     children: List.generate(
@@ -78,7 +82,7 @@ class _PneumoniaQuestionsState extends State<PneumoniaQuestions> {
                     ),
                   ),
                   const SizedBox(
-                    height: 60,
+                    height: 40,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -87,10 +91,10 @@ class _PneumoniaQuestionsState extends State<PneumoniaQuestions> {
                       yesNoButton('No')
                     ],
                   ),
-                  kPneumoniaAnswers[controller.pneumoniaQuestions[
-                  controller.currentPage].question] == 'Yes' ?
-                  Text(controller.pneumoniaQuestions[
-                  controller.currentPage].question) : const Text('')
+                  // kPneumoniaAnswers[controller.pneumoniaQuestions[
+                  // controller.currentPage].question] == 'Yes' ?
+                  // Text(controller.pneumoniaQuestions[
+                  // controller.currentPage].question) : const Text('')
                 ],
               ),
             ),
@@ -107,8 +111,8 @@ class _PneumoniaQuestionsState extends State<PneumoniaQuestions> {
           border: Border.all(
             color: const Color(0xff777777),
           )),
-      width: 100,
-      height: 55,
+      width: 90,
+      height: 50,
       child: TextButton(
         onPressed: () {
           setState(() {
@@ -119,6 +123,13 @@ class _PneumoniaQuestionsState extends State<PneumoniaQuestions> {
             controller.currentPage].question] == 'Yes'){
               kPneumoniaYesAnswers.add(controller.pneumoniaQuestions[
               controller.currentPage].question);}
+
+            pageController.nextPage(duration: const Duration(milliseconds: 500),
+                curve: Curves.easeIn);
+
+            if(controller.currentPage == controller.pneumoniaQuestions.length-1){
+              navigateToHomePage('patient');
+            }
           });
         },
         child: Text(answer, style: const TextStyle(

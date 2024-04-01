@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:sycamore_project/constants.dart';
 import 'package:sycamore_project/controllers/questions_controller.dart';
 
+import '../core/helper_methods.dart';
+
 class PulmonaryFibrosisQuestions extends StatefulWidget {
   const PulmonaryFibrosisQuestions({Key? key}) : super(key: key);
 
@@ -11,6 +13,7 @@ class PulmonaryFibrosisQuestions extends StatefulWidget {
 
 class _PulmonaryFibrosisQuestionsState extends State<PulmonaryFibrosisQuestions> {
   final controller = QuestionsController();
+  PageController pageController = PageController(initialPage: 0);
 
 
   @override
@@ -27,6 +30,7 @@ class _PulmonaryFibrosisQuestionsState extends State<PulmonaryFibrosisQuestions>
           },),
       ),
       body: PageView(
+        controller: pageController,
         onPageChanged: (value) {
           controller.currentPage = value;
           setState(() {});
@@ -45,7 +49,7 @@ class _PulmonaryFibrosisQuestionsState extends State<PulmonaryFibrosisQuestions>
                     style: TextStyle(fontWeight: FontWeight.bold,
                         fontSize: 24),
                     textAlign: TextAlign.center,),
-                  const SizedBox(height: 45,),
+                  const SizedBox(height: 30,),
                   Row(
                     mainAxisSize: MainAxisSize.min,
                     children: List.generate(
@@ -78,7 +82,7 @@ class _PulmonaryFibrosisQuestionsState extends State<PulmonaryFibrosisQuestions>
                     ),
                   ),
                   const SizedBox(
-                    height: 60,
+                    height: 40,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -87,10 +91,10 @@ class _PulmonaryFibrosisQuestionsState extends State<PulmonaryFibrosisQuestions>
                       yesNoButton('No')
                     ],
                   ),
-                  kPulmonaryFibrosisAnswers[controller.pulmonaryFibrosisQuestions[
-                  controller.currentPage].question] == 'Yes' ?
-                  Text(controller.pulmonaryFibrosisQuestions[
-                  controller.currentPage].question) : const Text('')
+                  // kPulmonaryFibrosisAnswers[controller.pulmonaryFibrosisQuestions[
+                  // controller.currentPage].question] == 'Yes' ?
+                  // Text(controller.pulmonaryFibrosisQuestions[
+                  // controller.currentPage].question) : const Text('')
                 ],
               ),
             ),
@@ -107,8 +111,8 @@ class _PulmonaryFibrosisQuestionsState extends State<PulmonaryFibrosisQuestions>
           border: Border.all(
             color: const Color(0xff777777),
           )),
-      width: 100,
-      height: 55,
+      width: 90,
+      height: 50,
       child: TextButton(
         onPressed: () {
           setState(() {
@@ -120,6 +124,14 @@ class _PulmonaryFibrosisQuestionsState extends State<PulmonaryFibrosisQuestions>
               kPulmonaryFibrosisYesAnswers.add(
                   controller.pulmonaryFibrosisQuestions[
                   controller.currentPage].question);}
+
+            pageController.nextPage(duration: const Duration(milliseconds: 500),
+                curve: Curves.easeIn);
+
+            if(controller.currentPage == controller.pulmonaryFibrosisQuestions
+                .length-1){
+              navigateToHomePage('patient');
+            }
           });
         },
         child: Text(answer, style: const TextStyle(
