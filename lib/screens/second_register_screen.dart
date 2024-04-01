@@ -40,7 +40,7 @@ class SecondRegisterScreen extends StatelessWidget {
           const SizedBox(
             height: 20,
           ),
-          Container(
+          SizedBox(
             height: 400,
             width: 280,
             child: Column(

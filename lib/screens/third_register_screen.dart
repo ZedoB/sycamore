@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sycamore_project/core/helper_methods.dart';
-import 'package:sycamore_project/screens/copd_questions_screen.dart';
-import 'package:sycamore_project/screens/interstitialLung_disease_questions_screen.dart';
 import 'package:sycamore_project/screens/pneumonia_questions.dart';
-import 'package:sycamore_project/screens/pneumonia_questions_screen.dart';
 import 'package:sycamore_project/screens/pulmonary_embolism_questions.dart';
-import 'package:sycamore_project/screens/pulmonary_embolism_questions_screen.dart';
 import 'package:sycamore_project/screens/pulmonary_fibrosis_questions.dart';
-import 'package:sycamore_project/screens/pulmonary_fibrosis_questions_sceen.dart';
 import '../components/item_radio_button_register_screen.dart';
 import 'copd_questions.dart';
 import 'interstitial_lung_questions.dart';

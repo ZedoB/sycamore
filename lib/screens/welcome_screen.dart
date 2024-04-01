@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:sycamore_project/constants.dart';
 import 'package:sycamore_project/core/login_show_dialog.dart';
 import 'package:sycamore_project/core/sign_up_show_dialog.dart';
-import 'package:sycamore_project/custom_widgets/custom_appBar.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});

@@ -1,6 +1,5 @@
 import 'package:sycamore_project/try/try_model.dart';
 
-import '../models/on_boarding_model.dart';
 
 class COPDController {
   int currentPage = 0;

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sycamore_project/core/helper_methods.dart';
 import 'package:sycamore_project/screens/doctor_sign_up_screen.dart';
 import 'package:sycamore_project/screens/patient_signup_screen.dart';
 

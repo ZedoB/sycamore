@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sycamore_project/constants.dart';
 import 'package:sycamore_project/core/helper_methods.dart';
 import 'package:sycamore_project/custom_widgets/custom_text_button.dart';
 import 'package:sycamore_project/screens/welcome_screen.dart';

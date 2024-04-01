@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../constants.dart';
 
 class ItemRadioButtonRegisterScreen extends StatefulWidget {
   const ItemRadioButtonRegisterScreen({

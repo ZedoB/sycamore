@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sycamore_project/core/fixed_app_bar.dart';
 
 class CheckYourInboxScreen extends StatelessWidget {
   const CheckYourInboxScreen({super.key});
