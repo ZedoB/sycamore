@@ -87,10 +87,11 @@ class _COPDQuestionsState extends State<COPDQuestions> {
                       yesNoButton('No')
                     ],
                   ),
-                  kCOPdAnswers[controller.copdQuestions[
-                  controller.currentPage].question] == 'Yes' ?
-                  Text(controller.copdQuestions[
-                  controller.currentPage].question) : const Text('')
+                  // kCOPdAnswers[controller.copdQuestions[
+                  // controller.currentPage].question] == 'Yes' ?
+                  // Text(controller.copdQuestions[
+                  // controller.currentPage].question) : const Text('')
+                  // Text(kCOPDYesAnswers.toString())
                 ],
               ),
             ),
@@ -112,8 +113,13 @@ class _COPDQuestionsState extends State<COPDQuestions> {
       child: TextButton(
         onPressed: () {
           setState(() {
-            kCOPdAnswers[controller
+            kCOPDAnswers[controller
                 .copdQuestions[controller.currentPage].question] = answer;
+
+            if(kCOPDAnswers[controller.copdQuestions[
+            controller.currentPage].question] == 'Yes'){
+              kCOPDYesAnswers.add(controller.copdQuestions[
+              controller.currentPage].question);}
           });
         },
         child: Text(answer, style: const TextStyle(

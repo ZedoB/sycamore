@@ -11,13 +11,19 @@ class CustomAppBar extends StatelessWidget {
       backgroundColor: Colors.white.withOpacity(0.2),
       elevation: 0,
       centerTitle: true,
-      title: const Text(
+      title: Text(
         'sycamore',
-        style: TextStyle(fontWeight: FontWeight.bold,
-          fontSize: 28,
-          fontFamily: 'InknutAntiqua',
-          color: Color(0xffA8D4D3),
-        ),
+        style: TextStyle(
+            shadows: const [
+              Shadow(
+                  blurRadius: 2,
+                  offset: Offset(0,4),
+                  color: Color(0xffC9DED3)
+              )
+            ],
+            fontSize: 55,
+            color: const Color(0xffA8D4D3).withOpacity(0.58),
+            fontFamily: 'Inknut Antiqua'),
       ),
     );
   }

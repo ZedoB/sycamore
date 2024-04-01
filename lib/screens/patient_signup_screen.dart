@@ -20,6 +20,14 @@ class _PatientSignUpScreenState extends State<PatientSignUpScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        elevation: 0,
+        leading: IconButton(icon: const Icon(Icons.arrow_back_ios
+        ,color: Colors.black,),
+        onPressed: (){Navigator.of(context).pop();},),
+        backgroundColor: Colors.white,
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(15.0),
@@ -33,22 +41,21 @@ class _PatientSignUpScreenState extends State<PatientSignUpScreen> {
                 const SizedBox(
                   height: 20,
                 ),
-                Center(
-                  child: Padding(
-                    padding: const EdgeInsets.only(right: 140.0),
-                    child: Text(
-                      'sign up',
-                      style: TextStyle(
-                          fontSize: 25,
-                          color: const Color(0xff030303).withOpacity(0.58),
-                          fontFamily: 'Poppins'),
-                    ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 40.0),
+                  child: Text(
+                    'sign up',
+                    style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.w300,
+                        color: const Color(0xff030303).withOpacity(0.58),
+                        fontFamily: 'Poppins'),
                   ),
                 ),
                 const SizedBox(
                   height: 30,
                 ),
-                const CustomLabelText(text: 'doctor id'),
+                const CustomLabelText(text: 'doctor id', fontSize: 24,),
                 const SizedBox(
                   height: 5,
                 ),

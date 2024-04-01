@@ -114,6 +114,12 @@ class _PulmonaryFibrosisQuestionsState extends State<PulmonaryFibrosisQuestions>
           setState(() {
             kPulmonaryFibrosisAnswers[controller.pulmonaryFibrosisQuestions[
               controller.currentPage].question] = answer;
+
+            if(kPulmonaryFibrosisAnswers[controller.pulmonaryFibrosisQuestions[
+            controller.currentPage].question] == 'Yes'){
+              kPulmonaryFibrosisYesAnswers.add(
+                  controller.pulmonaryFibrosisQuestions[
+                  controller.currentPage].question);}
           });
         },
         child: Text(answer, style: const TextStyle(

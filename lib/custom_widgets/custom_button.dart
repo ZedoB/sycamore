@@ -6,7 +6,7 @@ class CustomButton extends StatelessWidget {
       required this.text,
       this.onTap,
       this.borderRadius = 25,
-      this.width = 200,
+      this.width = 260,
       this.textFontSize = 20});
 
   final String text;
@@ -37,7 +37,12 @@ class CustomButton extends StatelessWidget {
         child: Center(
           child: Text(
             text,
-            style: TextStyle(color: Colors.white, fontSize: textFontSize),
+            style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.w700,
+                fontFamily: 'Inter',
+                fontSize: textFontSize
+            ),
           ),
         ),
       ),

@@ -13,6 +13,7 @@ class CustomLabelText extends StatelessWidget {
       text,
       style: TextStyle(
           fontSize: fontSize,
+          fontWeight: FontWeight.w300,
           color: const Color(0xff030303).withOpacity(0.58),
           fontFamily: 'Poppins'),
     );

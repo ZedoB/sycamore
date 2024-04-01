@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:sycamore_project/core/helper_methods.dart';
+import 'package:sycamore_project/screens/doctor_login_screen.dart';
+import 'package:sycamore_project/screens/patient_login_screen.dart';
+
+import '../constants.dart';
 
 void showLoginDialog(BuildContext context) {
   showDialog(
@@ -22,50 +26,62 @@ void showLoginDialog(BuildContext context) {
                 height: 40,
               ),
               const Padding(
-                padding: EdgeInsets.only(left: 20.0),
+                padding: EdgeInsets.symmetric(horizontal: 20),
                 child: Text(
-                  'Login As',
+                  'login as',
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: 22.0,
                     fontWeight: FontWeight.bold,
                   ),
+                  textAlign: TextAlign.center,
                 ),
               ),
               const SizedBox(
-                height: 20,
+                height: 25,
               ),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Radio(
-                    value: 'patient',
-                    groupValue: 'signupType',
-                    onChanged: (value) {
-                      navigateToLoginPage('patient');
-                    },
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const DoctorLoginScreen()));
+                },
+                child: Container(
+                  width: 220,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    color: const Color(0xff199A8E).withOpacity(.8),
+                    borderRadius: BorderRadius.circular(35),
                   ),
-                  const Text(
-                    'Patient',
-                    style: TextStyle(color: Colors.black),
+                  child: const Center(
+                    child: Text(
+                      'Doctor',
+                      style: TextStyle(color: Colors.white, fontSize: 20),
+                    ),
                   ),
-                ],
+                ),
               ),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Radio(
-                    value: 'doctor',
-                    groupValue: 'signupType',
-                    onChanged: (value) {
-                      navigateToLoginPage('doctor');
-                    },
+              const SizedBox(height: 12,),
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const PatientLoginScreen()));
+                },
+                child: Container(
+                  width: 220,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    border: Border.all(color: kPrimaryColor),
+                    borderRadius: BorderRadius.circular(35),
                   ),
-                  const Text(
-                    'Doctor',
-                    style: TextStyle(color: Colors.black),
+                  child: Center(
+                    child: Text(
+                      'Patient',
+                      style: TextStyle(color: const Color(0xff199A8E).withOpacity(.9)
+                          , fontSize: 20),
+                    ),
                   ),
-                ],
+                ),
               ),
               const SizedBox(height: 16.0),
             ],

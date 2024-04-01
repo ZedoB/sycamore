@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sycamore_project/core/fixed_app_bar.dart';
 
 class CheckYourInboxScreen extends StatelessWidget {
   const CheckYourInboxScreen({super.key});
@@ -6,6 +7,14 @@ class CheckYourInboxScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        leading: IconButton(icon: const Icon(Icons.arrow_back_ios,
+          color: Colors.black,),
+          onPressed: (){
+            Navigator.of(context).pop();
+          },),
+      ),
       body: Center(
         child: Column(
           children: [
@@ -34,7 +43,7 @@ class CheckYourInboxScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              height: 310,
+              height: 370,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
@@ -85,11 +94,11 @@ class CheckYourInboxScreen extends StatelessWidget {
                   GestureDetector(
                     onTap: () {},
                     child: Container(
-                      width: 200,
+                      width: 230,
                       height: 60,
                       decoration: BoxDecoration(
                         color: const Color(0xffFFFFFF).withOpacity(0.75),
-                        borderRadius: BorderRadius.circular(8),
+                        borderRadius: BorderRadius.circular(32),
                       ),
                       child: const Center(
                         child: Text(

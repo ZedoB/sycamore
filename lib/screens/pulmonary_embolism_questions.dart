@@ -115,6 +115,12 @@ class _PulmonaryEmbolismQuestionsState extends State<PulmonaryEmbolismQuestions>
           setState(() {
             kPulmonaryEmbolismAnswers[controller.pulmonaryEmbolismQuestions[
                   controller.currentPage].question] = answer;
+
+            if(kPulmonaryEmbolismAnswers[controller.pulmonaryEmbolismQuestions[
+            controller.currentPage].question] == 'Yes'){
+              kPulmonaryEmbolismYesAnswers.add(
+                  controller.pulmonaryEmbolismQuestions[
+                    controller.currentPage].question);}
           });
         },
         child: Text(answer, style: const TextStyle(

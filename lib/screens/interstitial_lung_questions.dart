@@ -115,6 +115,12 @@ class _InterstitialLungQuestionsState extends State<InterstitialLungQuestions> {
           setState(() {
             kInterstitialLungAnswers[controller.interstitialLungDiseaseQuestions[
             controller.currentPage].question] = answer;
+
+            if(kInterstitialLungAnswers[controller.interstitialLungDiseaseQuestions[
+            controller.currentPage].question] == 'Yes'){
+              kInterstitialLungYesAnswers.add(
+                  controller.interstitialLungDiseaseQuestions[
+              controller.currentPage].question);}
           });
         },
         child: Text(answer, style: const TextStyle(

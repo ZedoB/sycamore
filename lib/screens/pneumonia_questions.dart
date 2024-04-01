@@ -114,6 +114,11 @@ class _PneumoniaQuestionsState extends State<PneumoniaQuestions> {
           setState(() {
             kPneumoniaAnswers[controller.pneumoniaQuestions[
             controller.currentPage].question] = answer;
+
+            if(kPneumoniaAnswers[controller.pneumoniaQuestions[
+            controller.currentPage].question] == 'Yes'){
+              kPneumoniaYesAnswers.add(controller.pneumoniaQuestions[
+              controller.currentPage].question);}
           });
         },
         child: Text(answer, style: const TextStyle(

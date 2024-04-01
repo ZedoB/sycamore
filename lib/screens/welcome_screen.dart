@@ -36,7 +36,7 @@ class WelcomeScreen extends StatelessWidget {
             fontFamily: 'Inter'),
           ),
           const SizedBox(
-            height: 5,
+            height: 8,
           ),
           const Center(
             child: Text(

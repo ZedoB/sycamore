@@ -22,21 +22,27 @@ class SuccessRegisterScreen extends StatelessWidget {
           const SizedBox(
             height: 20,
           ),
-          const Text(
+          Text(
             '\t\t\t\tyou have\n successfully\n\t\t registered',
             style: TextStyle(
-              shadows: [
-                BoxShadow(blurRadius: 2.5),
+              shadows: const [
+                BoxShadow(
+                    blurRadius: 4,
+                  offset: Offset(2,4),
+                  color: Color(0xffBFDCCD)
+                ),
               ],
               fontFamily: "Alice",
-              fontSize: 35,
-              color: Color(0xff777777),
+              fontWeight: FontWeight.w400,
+              fontSize: 48,
+              color: const Color(0xff030303).withOpacity(.58),
             ),
           ),
           const SizedBox(
             height: 60,
           ),
           CustomButton(
+            borderRadius: 32,
             text: 'confirm',
             onTap: () {
               navigateToHomePage(selectedUserType);

@@ -3,6 +3,8 @@ import 'package:sycamore_project/core/helper_methods.dart';
 import 'package:sycamore_project/screens/doctor_sign_up_screen.dart';
 import 'package:sycamore_project/screens/patient_signup_screen.dart';
 
+import '../constants.dart';
+
 void showSignUpDialog(BuildContext context) {
   showDialog(
     context: context,
@@ -24,52 +26,62 @@ void showSignUpDialog(BuildContext context) {
                 height: 40,
               ),
               const Padding(
-                padding: EdgeInsets.only(left: 20.0),
+                padding: EdgeInsets.symmetric(horizontal: 20),
                 child: Text(
-                  'Sign Up As',
+                  'sign up as',
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: 22.0,
                     fontWeight: FontWeight.bold,
                   ),
+                  textAlign: TextAlign.center,
                 ),
               ),
               const SizedBox(
-                height: 20,
+                height: 25,
               ),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Radio(
-                    value: 'patient',
-                    groupValue: 'signupType',
-                    onChanged: (value) {
-                      navigateTo(
-                          page: const PatientSignUpScreen(), withHistory: true);
-                    },
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const DoctorSignUpScreen()));
+                },
+                child: Container(
+                  width: 220,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    color: const Color(0xff199A8E).withOpacity(.8),
+                    borderRadius: BorderRadius.circular(35),
                   ),
-                  const Text(
-                    'Patient',
-                    style: TextStyle(color: Colors.black),
+                  child: const Center(
+                    child: Text(
+                      'Doctor',
+                      style: TextStyle(color: Colors.white, fontSize: 20),
+                    ),
                   ),
-                ],
+                ),
               ),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Radio(
-                    value: 'doctor',
-                    groupValue: 'signupType',
-                    onChanged: (value) {
-                      navigateTo(
-                          page: const DoctorSignUpScreen(), withHistory: true);
-                    },
+              const SizedBox(height: 12,),
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const PatientSignUpScreen()));
+                },
+                child: Container(
+                  width: 220,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    border: Border.all(color: kPrimaryColor),
+                    borderRadius: BorderRadius.circular(35),
                   ),
-                  const Text(
-                    'Doctor',
-                    style: TextStyle(color: Colors.black),
+                  child: Center(
+                    child: Text(
+                      'Patient',
+                      style: TextStyle(color: const Color(0xff199A8E).withOpacity(.9)
+                          , fontSize: 20),
+                    ),
                   ),
-                ],
+                ),
               ),
               const SizedBox(height: 16.0),
             ],
