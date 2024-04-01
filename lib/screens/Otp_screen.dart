@@ -13,9 +13,19 @@ class OtpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+        leading: IconButton(icon: const Icon(Icons.arrow_back_ios,
+          color: Colors.black,),
+          onPressed: (){
+            Navigator.of(context).pop();
+          },),
+      ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(15.0),
+          padding: const EdgeInsets.symmetric(horizontal: 15.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -26,8 +36,9 @@ class OtpScreen extends StatelessWidget {
                 child: Text(
                   'check your inbox',
                   style: TextStyle(
-                      fontSize: 25,
-                      color: const Color(0xff030303).withOpacity(0.65),
+                    fontWeight: FontWeight.w500,
+                      fontSize: 36,
+                      color: const Color(0xff030303).withOpacity(0.58),
                       fontFamily: 'Poppins'),
                 ),
               ),
@@ -39,7 +50,7 @@ class OtpScreen extends StatelessWidget {
                   'A 6_digit confirmation code has \n\t\t\t\t\t\t\t\t\t\t\t\t been sent to your email',
                   style: TextStyle(
                       color: const Color(0xff030303).withOpacity(0.65),
-                      fontSize: 15.0,
+                      fontSize: 20.0,
                       fontFamily: 'Poppins'),
                 ),
               ),

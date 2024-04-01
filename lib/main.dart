@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sycamore_project/screens/Otp_screen.dart';
 import 'package:sycamore_project/screens/splash_screen.dart';
 import 'core/helper_methods.dart';
 
@@ -16,7 +17,7 @@ class SycamoreApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: false,
       ),
-      home: const SplashScreen(),
+      home: const OtpScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
