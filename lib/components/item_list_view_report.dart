@@ -26,7 +26,7 @@ class CustomListItem extends StatelessWidget {
                   fontFamily: 'Alice',
                   color: Color(0xff76BCBA),
                   fontWeight: FontWeight.w400,
-                  fontSize: 18,
+                  fontSize: 14,
                 ),
               ),
               const SizedBox(width: 5),
@@ -35,7 +35,7 @@ class CustomListItem extends StatelessWidget {
                 style: const TextStyle(
                   color: Color(0xff8E8E93),
                   fontWeight: FontWeight.w500,
-                  fontSize: 17,
+                  fontSize: 12,
                   fontFamily: 'Poppins'
                 ),
               ),

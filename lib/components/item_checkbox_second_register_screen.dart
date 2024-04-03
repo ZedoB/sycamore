@@ -40,7 +40,7 @@ class _ItemCheckBoxRegisterScreenState
           Text(
             widget.text,
             style: TextStyle(color: Colors.black.withOpacity(.8),
-                fontSize: 24,
+                fontSize: 18,
             fontFamily: 'Poppins',
             fontWeight: FontWeight.w200),
           ),

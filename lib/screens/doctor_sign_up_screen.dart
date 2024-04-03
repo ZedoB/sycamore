@@ -34,7 +34,7 @@ class _DoctorSignUpScreenState extends State<DoctorSignUpScreen> {
                 ),
                 Center(
                   child: Padding(
-                    padding: const EdgeInsets.only(right: 140.0),
+                    padding: const EdgeInsets.only(left: 20.0),
                     child: Text(
                       'sign up',
                       style: TextStyle(

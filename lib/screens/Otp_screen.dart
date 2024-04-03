@@ -30,7 +30,7 @@ class OtpScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(
-                height: 60,
+                height: 30,
               ),
               Center(
                 child: Text(

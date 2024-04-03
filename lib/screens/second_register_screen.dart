@@ -33,21 +33,21 @@ class SecondRegisterScreen extends StatelessWidget {
             child: Text(
               textAlign: TextAlign.center,
               'To complete your register\nplease answer this\nquestions',
-              style: TextStyle(fontWeight: FontWeight.w500, fontSize: 24,
+              style: TextStyle(fontWeight: FontWeight.w500, fontSize: 20,
               fontFamily: 'Inter'),
             ),
           ),
           const SizedBox(
-            height: 20,
+            height: 15,
           ),
           SizedBox(
-            height: 400,
+            height: 370,
             width: 280,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(
-                  height: 30,
+                  height: 20,
                 ),
                 const Center(
                   child: Text(
@@ -62,7 +62,7 @@ class SecondRegisterScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(
-                  height: 20,
+                  height: 15,
                 ),
                 ItemCheckBoxRegisterScreen(text: 'Heart disease'),
                 const SizedBox(height: 2,),

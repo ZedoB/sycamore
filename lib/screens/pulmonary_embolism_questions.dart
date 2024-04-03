@@ -77,7 +77,7 @@ class _PulmonaryEmbolismQuestionsState extends State<PulmonaryEmbolismQuestions>
                     textAlign: TextAlign.center,
                     style: const TextStyle(
                       fontFamily: "Alice",
-                      fontSize: 28,
+                      fontSize: 18,
                       fontWeight: FontWeight.w400,
                       color: Color(0xff777777),
                     ),

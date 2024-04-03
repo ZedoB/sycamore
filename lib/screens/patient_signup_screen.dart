@@ -42,7 +42,7 @@ class _PatientSignUpScreenState extends State<PatientSignUpScreen> {
                   height: 20,
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 40.0),
+                  padding: const EdgeInsets.only(left: 20.0),
                   child: Text(
                     'sign up',
                     style: TextStyle(
